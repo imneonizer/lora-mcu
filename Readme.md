@@ -1,5 +1,5 @@
-### LO-RA MCU
-Long range radio communication using LO-RA module on Node MCU board.
+### LORA MCU
+Long range radio communication using LORA module on Node MCU board.
 
 **Initial setup**
 
