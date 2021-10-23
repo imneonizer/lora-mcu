@@ -1,1 +1,2 @@
-from src import app
+import os; os.chdir("src")
+import app

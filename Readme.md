@@ -42,6 +42,3 @@ This will copy all the contents inside `lib`, `src` and `main.py` to your Node M
   ````
 
   Make sure all other dependencies of `app.py` are already copied on the board.
-
-
-

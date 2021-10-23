@@ -1,9 +1,14 @@
-from lib.common import get_mac
+import os 
+from common import get_uuid
 
-# Wifi credentials
-wifi_ssid = "Chitransh"
-wifi_pass = "11004455"
+# LoRa Pin config
+NSS = 'D8'
+MOSI = 'D7'
+MISO = 'D6'
+SCK = 'D5'
+RESET = 'D2'
+DIO0 = 'D1'
 
-# Hotspot credentials
-hotspot_ssid = "nodemcu:"+get_mac()
-hotspot_pass = "nodemcu12345"
+# payload config
+NODE_NAME = "{}_{}".format(os.uname().sysname, get_uuid())
+INTERVAL = 500 #ms
