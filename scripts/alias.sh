@@ -26,9 +26,9 @@ else
         export AMPY_PORT=$DEVICE
         export AMPY_BAUD=115200
         alias mcu="picocom -b $AMPY_BAUD $AMPY_PORT"
-        alias mcp="ampy put"
+        alias mcp='_(){ ampy put $1 $1; }; _'
+        alias acp="ampy put"
         alias mpy="ampy run"
         alias deploy="ampy put lib; ampy put src; ampy put main.py"
-        alias rcp='_(){ ampy put $1 $1; }; _'
     fi
 fi
