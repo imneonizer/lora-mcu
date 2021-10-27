@@ -10,7 +10,6 @@ lora = LoRa(
     DIO0='D1'
 )
 
-
 import time 
 msgCount = 0
 millisecond = time.ticks_ms
@@ -30,14 +29,17 @@ def on_receive(context, payload):
 lora.client.onReceive(on_receive)
 
 while True:
-    now = time.ticks_ms()
-    if now < lastSendTime:
-        lastSendTime = now 
+    if config.NODE_NAME == "7d7e7900":
+        now = time.ticks_ms()
+        if now < lastSendTime:
+            lastSendTime = now 
 
-    if (now - lastSendTime > interval):
-        lastSendTime = now
-        interval = (lastSendTime % config.INTERVAL)
-        message = "{} {}".format(config.NODE_NAME, msgCount)
-        lora.send(message)
-        msgCount += 1
+        if (now - lastSendTime > interval):
+            lastSendTime = now
+            interval = (lastSendTime % config.INTERVAL)
+            message = "{} {}".format(config.NODE_NAME, msgCount)
+            lora.send(message)
+            msgCount += 1
+    else:
         lora.client.receive()
+        time.sleep_ms(config.INTERVAL)

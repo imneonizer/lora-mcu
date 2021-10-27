@@ -10,5 +10,5 @@ RESET = 'D2'
 DIO0 = 'D1'
 
 # payload config
-NODE_NAME = "{}_{}".format(os.uname().sysname, get_uuid())
-INTERVAL = 500 #ms
+NODE_NAME = get_uuid()
+INTERVAL = 100 #ms
