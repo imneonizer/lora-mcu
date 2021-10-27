@@ -28,18 +28,15 @@ def on_receive(context, payload):
 
 lora.client.onReceive(on_receive)
 
+print("This Node: {}".format(config.NODE_NAME))
 while True:
     if config.NODE_NAME == "7d7e7900":
-        now = time.ticks_ms()
-        if now < lastSendTime:
-            lastSendTime = now 
-
-        if (now - lastSendTime > interval):
-            lastSendTime = now
-            interval = (lastSendTime % config.INTERVAL)
-            message = "{} {}".format(config.NODE_NAME, msgCount)
-            lora.send(message)
-            msgCount += 1
+        message = "{} {}".format(config.NODE_NAME, msgCount)
+        lora.send(message)            
+        lora.client.blink_led()
+        print(message)
+        msgCount += 1
     else:
         lora.client.receive()
-        time.sleep_ms(config.INTERVAL)
+    
+    time.sleep_ms(config.INTERVAL)
