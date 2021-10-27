@@ -1,5 +1,6 @@
 #! /bin/bash
 # script to flash esp8266 based nodemcu
+# sudo usermod -a -G dialout $USER
 
 FIRMWARE_NAME='esp8266-micropython.bin'
 FIRMWARE_URL='https://micropython.org/resources/firmware/esp8266-20210902-v1.17.bin'

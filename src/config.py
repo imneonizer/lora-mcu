@@ -11,4 +11,4 @@ DIO0 = 'D1'
 
 # payload config
 NODE_NAME = get_uuid()
-INTERVAL = 50 #ms
+INTERVAL = 1 #ms
