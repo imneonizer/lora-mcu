@@ -1,12 +1,10 @@
 #! /bin/bash
 # script to work with esp8266 based nodemcu
 
-DEVICE="/dev/ttyUSB$1"
-
-# check if script is being sourced
-if [[ ! "${BASH_SOURCE[0]}" != "${0}" ]];then
-    echo "Usage: source $0"
-    exit
+if [[ $1 == /dev/ttyUSB* ]] ;then
+    DEVICE="$1"
+else
+    DEVICE="/dev/ttyUSB$1"
 fi
 
 # install dev tools: esptool, adafruit-ampy

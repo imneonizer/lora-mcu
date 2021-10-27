@@ -3,7 +3,12 @@
 
 FIRMWARE_NAME='esp8266-micropython.bin'
 FIRMWARE_URL='https://micropython.org/resources/firmware/esp8266-20210902-v1.17.bin'
-DEVICE="/dev/ttyUSB$1"
+
+if [[ $1 == /dev/ttyUSB* ]] ;then
+    DEVICE="$1"
+else
+    DEVICE="/dev/ttyUSB$1"
+fi
 
 # download firmware
 mkdir -p "/tmp"
