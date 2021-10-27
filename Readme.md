@@ -32,7 +32,7 @@ This will copy all the contents inside `lib`, `src` and `main.py` to your Node M
 - If you want to modify a file and then update it without deploying the whole application simply use: `mcp <path/on/linux/machine> <path/on/mcu/board>` for example:
 
   ````sh
-  mcp <path/on/linux/machine> <path/on/mcu/board>
+  ampy put <path/on/linux/machine> <path/on/mcu/board>
   ````
 
 - If you want to execute a file from you linux machine to directly on the board:
