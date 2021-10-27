@@ -1,5 +1,6 @@
 import config
 from lora import LoRa
+from common.blink import blink
 
 lora = LoRa(
     NSS='D8',
@@ -18,7 +19,7 @@ interval = 0
 st = time.ticks_ms()
 
 def on_receive(context, payload):
-    context.blink_led()
+    blink(1, 0.03)
     try:
         message = payload.decode()
         rssi = context.packetRssi()
@@ -33,7 +34,7 @@ while True:
     if config.NODE_NAME == "7d7e7900":
         message = "{} {}".format(config.NODE_NAME, msgCount)
         lora.send(message)            
-        lora.client.blink_led()
+        blink(1, 0.03)
         print(message)
         msgCount += 1
     else:
